@@ -23,21 +23,18 @@
             <li>
                 <a href="/filmout/films/1994">Pelis ordenadas por año descendente</a>
             </li>
-            <li>
-                <a href="/filmout/films/null/Action">Pelis de Acción</a>
-            </li>
         </ul>
     </div>
 
-    @if(session('success'))
+    @if(session(key: 'success'))
         <div>
-            <strong>Éxito:</strong> {{ session('success') }}
+            <strong>Éxito:</strong> {{ session(key: 'success') }}
         </div>
     @endif
 
-    @if(session('error'))
+    @if(session(key: 'error'))
         <div>
-            <strong>Error:</strong> {{ session('error') }}
+            <strong>Error:</strong> {{ session(key: 'error') }}
         </div>
     @endif
 
@@ -54,7 +51,7 @@
 
     <div>
         <h2>Añadir Película</h2>
-        <form action="{{ route('createFilm') }}" method="POST">
+        <form action="{{ route(name: 'createFilm') }}" method="POST">
             @csrf
             
             <div>
@@ -62,7 +59,7 @@
                 <input type="text" 
                        id="name" 
                        name="name" 
-                       value="{{ old('name') }}" 
+                       value="{{ old(key: 'name') }}" 
                        required>
                 @error('name')
                     <div>{{ $message }}</div>
@@ -74,9 +71,9 @@
                 <input type="number" 
                        id="year" 
                        name="year" 
-                       value="{{ old('year') }}" 
+                       value="{{ old(key: 'year') }}" 
                        min="1900" 
-                       max="{{ date('Y') + 5 }}"
+                       max="{{ date(format: 'Y') + 5 }}"
                        required>
                 @error('year')
                     <div>{{ $message }}</div>
@@ -88,7 +85,7 @@
                 <input type="text" 
                        id="genre" 
                        name="genre" 
-                       value="{{ old('genre') }}" 
+                       value="{{ old(key: 'genre') }}" 
                        required>
                 @error('genre')
                     <div>{{ $message }}</div>
@@ -100,7 +97,7 @@
                 <input type="text" 
                        id="country" 
                        name="country" 
-                       value="{{ old('country') }}" 
+                       value="{{ old(key: 'country') }}" 
                        required>
                 @error('country')
                     <div>{{ $message }}</div>
@@ -112,7 +109,7 @@
                 <input type="number" 
                        id="duration" 
                        name="duration" 
-                       value="{{ old('duration') }}" 
+                       value="{{ old(key: 'duration') }}" 
                        min="1"
                        required>
                 @error('duration')
@@ -125,7 +122,7 @@
                 <input type="url" 
                        id="img_url" 
                        name="img_url" 
-                       value="{{ old('img_url') }}" 
+                       value="{{ old(key: 'img_url') }}" 
                        required>
                 @error('img_url')
                     <div>{{ $message }}</div>

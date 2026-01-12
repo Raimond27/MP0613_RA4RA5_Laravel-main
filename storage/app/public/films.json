@@ -62,5 +62,13 @@
         "country": "Barcelona",
         "duration": 130,
         "img_url": "https:\/\/tse2.mm.bing.net\/th\/id\/OIP.PPQoOAtKckMx9AEO1JIIrQHaEK?pid=Api&P=0&h=180"
+    },
+    {
+        "name": "YU GI OH",
+        "year": 1980,
+        "genre": "Acci\u00f3n",
+        "country": "japon",
+        "duration": 140,
+        "img_url": "https:\/\/tse4.mm.bing.net\/th\/id\/OIP.nUF6ZBCngpEtp-vG9-loJQHaEK?pid=Api&P=0&h=180"
     }
 ]
