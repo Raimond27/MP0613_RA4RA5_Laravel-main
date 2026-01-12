@@ -28,4 +28,12 @@
         });
     });
 
+    // Rutas para añadir películas con middleware de validación de URL
+    Route::middleware('validateurl')->group(function() {
+        Route::group(['prefix'=>'filmin'], function(){
+            // Routes included with prefix "filmin"
+            Route::post('film',[FilmController::class, "createFilm"])->name('createFilm');
+        });
+    });
+
 

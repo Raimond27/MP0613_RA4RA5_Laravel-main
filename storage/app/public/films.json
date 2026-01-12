@@ -1,11 +1,11 @@
 [
     {
-        "name": "La Rosa Púrpura del Cairo",
+        "name": "La Rosa P\u00farpura del Cairo",
         "year": 1985,
         "genre": "Drama",
         "country": "EE.UU.",
         "duration": 82,
-        "img_url": "https://es.web.img2.acsta.net/medias/nmedia/18/79/45/34/20253823.jpg"
+        "img_url": "https:\/\/es.web.img2.acsta.net\/medias\/nmedia\/18\/79\/45\/34\/20253823.jpg"
     },
     {
         "name": "El Club de los Cinco",
@@ -13,7 +13,7 @@
         "genre": "Comedia",
         "country": "EE.UU.",
         "duration": 97,
-        "img_url": "https://pics.filmaffinity.com/El_club_de_los_cinco-192309838-large.jpg"
+        "img_url": "https:\/\/pics.filmaffinity.com\/El_club_de_los_cinco-192309838-large.jpg"
     },
     {
         "name": "Forrest Gump",
@@ -21,22 +21,46 @@
         "genre": "Drama",
         "country": "EE.UU.",
         "duration": 142,
-        "img_url": "https://pics.filmaffinity.com/Forrest_Gump-212765827-large.jpg"
+        "img_url": "https:\/\/pics.filmaffinity.com\/Forrest_Gump-212765827-large.jpg"
     },
     {
         "name": "Arrival",
         "year": 2016,
-        "genre": "Ciencia Ficción",
+        "genre": "Ciencia Ficci\u00f3n",
         "country": "EE.UU.",
         "duration": 116,
-        "img_url": "https://pics.filmaffinity.com/La_llegada-686966912-large.jpg"
+        "img_url": "https:\/\/pics.filmaffinity.com\/La_llegada-686966912-large.jpg"
     },
     {
         "name": "As Bestas",
         "year": 2022,
         "genre": "Drama",
-        "country": "España",
+        "country": "Espa\u00f1a",
         "duration": 137,
-        "img_url": "https://pics.filmaffinity.com/As_bestas-275688233-large.jpg"
+        "img_url": "https:\/\/pics.filmaffinity.com\/As_bestas-275688233-large.jpg"
+    },
+    {
+        "name": "Raimond",
+        "year": 1902,
+        "genre": "comedia",
+        "country": "estados unidos",
+        "duration": 124,
+        "img_url": "https:\/\/tse1.mm.bing.net\/th\/id\/OIP.18sUiM4hWvxkDi1xEhptuQHaML?pid=Api&P=0&h=180"
+    },
+    {
+        "name": "jojo",
+        "year": 2012,
+        "genre": "anime",
+        "country": "japon",
+        "duration": 120,
+        "img_url": "https:\/\/tse2.mm.bing.net\/th\/id\/OIP.iBW9RX-xnN0VEZEdkWKu3AHaKa?pid=Api&P=0&h=180"
+    },
+    {
+        "name": "Biel",
+        "year": 1912,
+        "genre": "Acci\u00f3n",
+        "country": "Barcelona",
+        "duration": 130,
+        "img_url": "https:\/\/tse2.mm.bing.net\/th\/id\/OIP.PPQoOAtKckMx9AEO1JIIrQHaEK?pid=Api&P=0&h=180"
     }
 ]
