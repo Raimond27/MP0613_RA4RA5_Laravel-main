@@ -48,21 +48,32 @@ class FilmController extends Controller
     {
         $films_filtered = [];
 
-        $title = "Listado de todas las pelis";
+        $title = "Listado de todas las pelis (por año descendente)";
         $films = FilmController::readFilms();
+
+        // Ordenar las películas por año descendente
+        usort($films, function($a, $b) {
+            return $b['year'] <=> $a['year'];
+        });
 
         if (is_null($year) && is_null($genre))
             return view('films.list', ["films" => $films, "title" => $title]);
 
+        // Construir el título según los filtros aplicados
+        if (!is_null($year) && is_null($genre)) {
+            $title = "Listado de todas las pelis filtrado por año: $year";
+        } else if (is_null($year) && !is_null($genre)) {
+            $title = "Listado de todas las pelis filtrado por categoría: $genre";
+        } else if (!is_null($year) && !is_null($genre)) {
+            $title = "Listado de todas las pelis filtrado por año: $year y categoría: $genre";
+        }
+
         foreach ($films as $film) {
             if ((!is_null($year) && is_null($genre)) && $film['year'] == $year){
-                $title = "Listado de todas las pelis filtrado x año";
                 $films_filtered[] = $film;
             }else if((is_null($year) && !is_null($genre)) && strtolower($film['genre']) == strtolower($genre)){
-                $title = "Listado de todas las pelis filtrado x categoria";
                 $films_filtered[] = $film;
             }else if(!is_null($year) && !is_null($genre) && strtolower($film['genre']) == strtolower($genre) && $film['year'] == $year){
-                $title = "Listado de todas las pelis filtrado x categoria y año";
                 $films_filtered[] = $film;
             }
         }

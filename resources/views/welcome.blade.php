@@ -21,7 +21,7 @@
                 <a href="/filmout/films">Pelis</a>
             </li>
             <li>
-                <a href="/filmout/films/1994">Pelis ordenadas por año descendente</a>
+                <a href="/filmout/films">Pelis ordenadas por año descendente</a>
             </li>
         </ul>
     </div>
