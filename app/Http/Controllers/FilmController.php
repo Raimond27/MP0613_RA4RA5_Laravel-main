@@ -25,7 +25,7 @@ class FilmController extends Controller
             if ($film['year'] < $year)
                 $old_films[] = $film;
         }
-        return view('films.list', ["films" => $old_films, "title" => $title]);
+        return view('welcome', ["films" => $old_films, "title" => $title]);
     }
     
     public function listNewFilms($year = null)
@@ -41,7 +41,7 @@ class FilmController extends Controller
             if ($film['year'] >= $year)
                 $new_films[] = $film;
         }
-        return view('films.list', ["films" => $new_films, "title" => $title]);
+        return view('welcome', ["films" => $new_films, "title" => $title]);
     }
  
     public function listFilms($year = null, $genre = null)
@@ -57,7 +57,7 @@ class FilmController extends Controller
         });
 
         if (is_null($year) && is_null($genre))
-            return view('films.list', ["films" => $films, "title" => $title]);
+            return view('welcome', ["films" => $films, "title" => $title]);
 
         // Construir el título según los filtros aplicados
         if (!is_null($year) && is_null($genre)) {
@@ -77,7 +77,7 @@ class FilmController extends Controller
                 $films_filtered[] = $film;
             }
         }
-        return view("films.list", ["films" => $films_filtered, "title" => $title]);
+        return view("welcome", ["films" => $films_filtered, "title" => $title]);
     }
 
     /**
@@ -148,5 +148,12 @@ class FilmController extends Controller
 
         // Redirigir con mensaje de éxito
         return redirect('/')->with('success', 'La película "' . $filmName . '" se ha añadido correctamente');
+    }
+
+    public function countFilms()
+    {
+        $films = FilmController::readFilms();
+        $total = count($films);
+        return view('welcome', ["total" => $total]);
     }
 }

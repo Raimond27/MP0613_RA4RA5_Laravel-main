@@ -70,5 +70,21 @@
         "country": "japon",
         "duration": 140,
         "img_url": "https:\/\/tse4.mm.bing.net\/th\/id\/OIP.nUF6ZBCngpEtp-vG9-loJQHaEK?pid=Api&P=0&h=180"
+    },
+    {
+        "name": "nana",
+        "year": 2000,
+        "genre": "anime",
+        "country": "japon",
+        "duration": 123,
+        "img_url": "https:\/\/es.pinterest.com\/pin\/497366352625326252\/"
+    },
+    {
+        "name": "gucci",
+        "year": 2000,
+        "genre": "anime",
+        "country": "japon",
+        "duration": 123,
+        "img_url": "https:\/\/tse1.mm.bing.net\/th\/id\/OIP.g5kMgkOSx9cE1wCNBYI45gHaDs?pid=Api&P=0&h=180"
     }
 ]

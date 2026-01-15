@@ -25,6 +25,7 @@
             Route::get('oldFilms/{year?}',[FilmController::class, "listOldFilms"])->name('oldFilms');
             Route::get('newFilms/{year?}',[FilmController::class, "listNewFilms"])->name('newFilms');
             Route::get('films/{year?}/{genre?}',[FilmController::class, "listFilms"])->name('listFilms');
+            Route::get('count',[FilmController::class, "countFilms"])->name('countFilms');
         });
     });
 
