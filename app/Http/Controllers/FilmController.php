@@ -146,8 +146,8 @@ class FilmController extends Controller
         // Guardar el array actualizado en el archivo JSON
         Storage::put('/public/films.json', json_encode($films, JSON_PRETTY_PRINT));
 
-        // Redirigir con mensaje de éxito
-        return redirect('/')->with('success', 'La película "' . $filmName . '" se ha añadido correctamente');
+        // Redirigir al listado de películas con mensaje de éxito
+        return redirect()->route('listFilms')->with('success', 'La película "' . $filmName . '" se ha añadido correctamente');
     }
 
     public function countFilms()

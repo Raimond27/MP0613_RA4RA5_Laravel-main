@@ -6,24 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies List</title>
     <style>
+        /* Estilos base */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
+            margin: 0;
+            padding: 0;
             background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* Cabecera */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        /* Contenedor principal */
         .container {
+            flex: 1;
             background: #fff;
             padding: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h1, h2 {
+        /* Pie de página */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        h2 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
             padding-bottom: 0.5rem;
@@ -134,10 +164,14 @@
 </head>
 
 <body>
+    <header>
+        <h1>🎬 Movie Hub - Mi Lista de Películas</h1>
+    </header>
+
     <div class="container">
         @if(!isset($films) && !isset($total))
         <div>
-            <h1>Lista de Películas</h1>
+            <h2>Lista de Películas</h2>
             <ul>
                 <li><a href="/filmout/oldFilms">Pelis antiguas</a></li>
                 <li><a href="/filmout/newFilms">Pelis nuevas</a></li>
@@ -217,7 +251,7 @@
         @endif
 
         @if(isset($films))
-            <h1>{{$title}}</h1>
+            <h2>{{$title}}</h2>
 
             @if(empty($films))
                 <div class="alert alert-error">No se ha encontrado ninguna película</div>
@@ -227,12 +261,12 @@
                 <table>
                     <thead>
                         <tr>
-                            @foreach($films as $film)
-                                @foreach(array_keys($film) as $key)
-                                    <th>{{ ucfirst($key) }}</th>
-                                @endforeach
-                                @break
-                            @endforeach
+                            <th>Título</th>
+                            <th>Año</th>
+                            <th>Género</th>
+                            <th>País</th>
+                            <th>Duración</th>
+                            <th>Imagen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -253,7 +287,7 @@
 
         @if(isset($total))
             <div>
-                <h1>Recuento Total de Películas</h1>
+                <h2>Recuento Total de Películas</h2>
                 <p>Actualmente hay un total de <strong>{{ $total }}</strong> películas registradas en el sistema.</p>
             </div>
         @endif
@@ -264,7 +298,10 @@
             </div>
         @endif
     </div>
+
+    <footer>
+        <p>&copy; {{ date('Y') }} Movie Hub - Todos los derechos reservados</p>
+    </footer>
 </body>
 
 </html>
-
