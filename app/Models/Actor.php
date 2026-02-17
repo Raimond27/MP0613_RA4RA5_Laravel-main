@@ -15,6 +15,7 @@ class Actor extends Model
         'birthdate',
         'country',
         'img_url',
+        'alias',
     ];
 
     /**
@@ -23,5 +24,16 @@ class Actor extends Model
     public function films()
     {
         return $this->belongsToMany(Film::class, 'film_actor');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($actor) {
+            if (empty($actor->alias)) {
+                $actor->alias = \Illuminate\Support\Str::slug($actor->name . ' ' . $actor->surname);
+            }
+        });
     }
 }
