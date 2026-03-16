@@ -156,4 +156,15 @@ class FilmController extends Controller
         $total = count($films);
         return view('welcome', ["total" => $total]);
     }
+
+    /**
+     * API: List all films with their associated actors.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        $films = \App\Models\Film::with('actors')->get();
+        return response()->json($films);
+    }
 }
