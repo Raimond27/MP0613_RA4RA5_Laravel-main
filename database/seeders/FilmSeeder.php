@@ -13,19 +13,6 @@ class FilmSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create();
-        $genres = ['Drama', 'Action', 'Comedy', 'Thriller', 'Sci-Fi', 'Horror', 'Animation', 'Romance', 'Crime', 'Adventure'];
-        $countries = ['USA', 'UK', 'France', 'Germany', 'Spain', 'Italy', 'Japan', 'South Korea', 'Mexico', 'Canada'];
-
-        for ($i = 0; $i < 20; $i++) {
-            \App\Models\Film::create([
-                'name' => $faker->unique()->sentence(3),
-                'year' => $faker->year(),
-                'genre' => $faker->randomElement($genres),
-                'country' => $faker->randomElement($countries),
-                'duration' => $faker->numberBetween(80, 200),
-                'img_url' => $faker->imageUrl(255, 255, 'film', true),
-            ]);
-        }
+        \App\Models\Film::factory()->count(20)->create();
     }
 }
