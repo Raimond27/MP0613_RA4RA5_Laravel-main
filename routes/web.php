@@ -32,6 +32,7 @@
         Route::group(['prefix'=>'actorout'], function(){
             // Routes included with prefix "actorout"
             Route::get('actors', [ActorController::class, "listActors"])->name('listActors');
+            Route::get('listActorsByDecade/{year}', [ActorController::class, "listActorsByDecade"])->name('listActorsByDecade');
         });
     });
 
