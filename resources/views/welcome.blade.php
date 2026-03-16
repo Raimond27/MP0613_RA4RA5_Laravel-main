@@ -177,6 +177,7 @@
                 <li><a href="/filmout/newFilms">Pelis nuevas</a></li>
                 <li><a href="/filmout/films">Pelis</a></li>
                 <li><a href="/filmout/films">Pelis ordenadas por año descendente</a></li>
+                <li><a href="{{ route('listActors') }}">Listar Actores</a></li>
                 <li><a href="{{ route('countFilms') }}">Ver total de películas</a></li>
             </ul>
         </div>
