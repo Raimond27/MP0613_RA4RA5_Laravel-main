@@ -37,4 +37,15 @@ class ActorController extends Controller
         
         return view('actors.list', compact('actors', 'title'));
     }
+
+    /**
+     * Count total actors.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function countActors()
+    {
+        $count = Actor::count();
+        return view('actors.count', compact('count'));
+    }
 }
