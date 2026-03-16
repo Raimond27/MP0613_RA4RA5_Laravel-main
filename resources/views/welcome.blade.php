@@ -182,6 +182,23 @@
             </ul>
         </div>
 
+        <div>
+            <h2>Listar Actores por Década</h2>
+            <form action="#" method="GET" onsubmit="event.preventDefault(); window.location.href='/actorout/listActorsByDecade/' + document.getElementById('decade').value;">
+                <div class="form-group">
+                    <label for="decade">Selecciona una década:</label>
+                    <select id="decade" name="decade" style="padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+                        <option value="1980">1980 - 1989</option>
+                        <option value="1990">1990 - 1999</option>
+                        <option value="2000">2000 - 2009</option>
+                        <option value="2010">2010 - 2019</option>
+                        <option value="2020">2020 - 2029</option>
+                    </select>
+                </div>
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+
         @if(session('success'))
             <div class="alert alert-success">
                 <strong>Éxito:</strong> {{ session('success') }}

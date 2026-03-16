@@ -18,12 +18,15 @@ class ValidateYear
     {
         $year = $request->route('year');
 
-        // in case year is not numeric go to homepage
-        if(isset($year)){
-            if(is_null($year) || !is_numeric($year)){
-                  return redirect('/');
+        // Check if year is present and is one of the allowed decades
+        $allowedDecades = [1980, 1990, 2000, 2010, 2020];
+
+        if (isset($year)) {
+            if (!is_numeric($year) || !in_array((int)$year, $allowedDecades)) {
+                return redirect('/');
             }
         }
+        
         return $next($request);        
     }
 }
