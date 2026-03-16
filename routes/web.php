@@ -27,6 +27,7 @@
             Route::get('newFilms/{year?}',[FilmController::class, "listNewFilms"])->name('newFilms');
             Route::get('films/{year?}/{genre?}',[FilmController::class, "listFilms"])->name('listFilms');
             Route::get('count',[FilmController::class, "countFilms"])->name('countFilms');
+            Route::delete('film/{id}', [FilmController::class, "delete"])->name('deleteFilm');
         });
 
         Route::group(['prefix'=>'actorout'], function(){
@@ -34,6 +35,7 @@
             Route::get('actors', [ActorController::class, "listActors"])->name('listActors');
             Route::get('listActorsByDecade/{year}', [ActorController::class, "listActorsByDecade"])->name('listActorsByDecade');
             Route::get('countActors', [ActorController::class, "countActors"])->name('countActors');
+            Route::delete('actor/{id}', [ActorController::class, "delete"])->name('deleteActor');
         });
     });
 

@@ -74,4 +74,23 @@ class ActorController extends Controller
             'status' => $status
         ]);
     }
+
+    /**
+     * Remove the specified actor from storage (Web).
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete($id)
+    {
+        $actor = Actor::find($id);
+
+        if (!$actor) {
+            return redirect()->back()->with('error', 'Actor no encontrado');
+        }
+
+        $actor->delete();
+
+        return redirect()->back()->with('success', 'Actor eliminado correctamente');
+    }
 }

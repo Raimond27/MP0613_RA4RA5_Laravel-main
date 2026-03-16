@@ -286,6 +286,7 @@
                             <th>País</th>
                             <th>Duración</th>
                             <th>Imagen</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -297,6 +298,13 @@
                                 <td>{{$film['country']}}</td>
                                 <td>{{$film['duration']}} min</td>
                                 <td><img src="{{$film['img_url']}}" alt="{{$film['name']}}" style="width: 80px; height: auto;" /></td>
+                                <td>
+                                    <form action="{{ route('deleteFilm', $film['id']) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta película?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" style="background: #e74c3c; padding: 0.5rem 1rem; font-size: 0.9rem;">Borrar</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -135,4 +135,49 @@ class FilmController extends Controller
         $films = Film::with('actors')->get();
         return response()->json($films);
     }
+
+    /**
+     * Remove the specified film from storage (API).
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id)
+    {
+        $film = Film::find($id);
+
+        if (!$film) {
+            return response()->json([
+                'action' => 'delete',
+                'status' => false,
+                'message' => 'Film not found'
+            ], 404);
+        }
+
+        $status = $film->delete();
+
+        return response()->json([
+            'action' => 'delete',
+            'status' => $status
+        ]);
+    }
+
+    /**
+     * Remove the specified film from storage (Web).
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete($id)
+    {
+        $film = Film::find($id);
+
+        if (!$film) {
+            return redirect()->back()->with('error', 'Película no encontrada');
+        }
+
+        $film->delete();
+
+        return redirect()->back()->with('success', 'Película eliminada correctamente');
+    }
 }

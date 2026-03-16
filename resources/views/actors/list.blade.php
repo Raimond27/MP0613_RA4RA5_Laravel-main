@@ -125,6 +125,7 @@
                         <th>País</th>
                         <th>Alias</th>
                         <th>Imagen</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -141,6 +142,13 @@
                                 @else
                                     No disponible
                                 @endif
+                            </td>
+                            <td>
+                                <form action="{{ route('deleteActor', $actor->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este actor?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" style="background: #e74c3c; padding: 0.5rem 1rem; font-size: 0.9rem;">Borrar</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
