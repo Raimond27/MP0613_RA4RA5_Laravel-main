@@ -148,7 +148,7 @@
                                 <td>{{$film['genre']}}</td>
                                 <td>{{$film['country']}}</td>
                                 <td>{{$film['duration']}} min</td>
-                                <td><img src="{{$film['img_url']}}" alt="{{$film['name']}}" style="width: 80px; height: auto;" /></td>
+                                <td><img src="{{$film['img_url']}}" alt="{{$film['name']}}" /></td>
                                 <td>
                                     <form action="{{ route('deleteFilm', $film['id']) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta película?');">
                                         @csrf

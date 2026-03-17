@@ -284,9 +284,12 @@ td img {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
-    max-width: 100px;
-    height: auto;
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
     display: block;
+    border: 2px solid var(--primary);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 td img:hover {
