@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 class ActorController extends Controller
 {
     /**
-     * List all actors using Eloquent.
-     *
-     * @return \Illuminate\View\View
+     * List all actors (WEB).
      */
     public function listActors()
     {
@@ -21,39 +19,80 @@ class ActorController extends Controller
     }
 
     /**
-     * List actors by birthdate decade.
-     *
-     * @param int $year The starting year of the decade.
-     * @return \Illuminate\View\View
+     * List actors by decade (WEB).
      */
     public function listActorsByDecade($year)
     {
         $endYear = $year + 9;
+
         $actors = Actor::whereYear('birthdate', '>=', $year)
-                      ->whereYear('birthdate', '<=', $endYear)
-                      ->get();
+                       ->whereYear('birthdate', '<=', $endYear)
+                       ->get();
         
         $title = "Listado de actores nacidos en la década de $year";
         
         return view('actors.list', compact('actors', 'title'));
     }
 
+/**
+ * Count total actors (API).
+ *
+ * @return \Illuminate\Http\JsonResponse
+ */
+public function countActorsApi()
+{
+    $count = Actor::count();
+
+    return response()->json([
+        'status' => true,
+        'total_actors' => $count
+    ]);
+}
+
     /**
-     * Count total actors.
-     *
-     * @return \Illuminate\View\View
+     * List all actors (API).
      */
-    public function countActors()
+    public function index()
     {
-        $count = Actor::count();
-        return view('actors.count', compact('count'));
+        $actors = Actor::all();
+
+        return response()->json([
+            'status' => true,
+            'data' => $actors
+        ]);
     }
 
     /**
-     * Remove the specified actor from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * List actors by decade (API).
+     */
+    public function actorsByDecade($year)
+    {
+        // Valid decades
+        $validYears = [1980, 1990, 2000, 2010, 2020];
+
+        if (!in_array($year, $validYears)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Década no válida. Valores permitidos: 1980, 1990, 2000, 2010, 2020'
+            ], 400);
+        }
+
+        $endYear = $year + 9;
+
+        $actors = Actor::whereYear('birthdate', '>=', $year)
+                       ->whereYear('birthdate', '<=', $endYear)
+                       ->get();
+
+        return response()->json([
+            'status' => true,
+            'decade' => "$year-$endYear",
+            'count' => $actors->count(),
+            'data' => $actors
+        ]);
+    }
+
+    /**
+     * Delete actor (API).
      */
     public function destroy($id)
     {
@@ -76,10 +115,7 @@ class ActorController extends Controller
     }
 
     /**
-     * Remove the specified actor from storage (Web).
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * Delete actor (WEB).
      */
     public function delete($id)
     {
